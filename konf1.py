@@ -1,12 +1,15 @@
 import tkinter as tk
 from tkinter import scrolledtext, Entry
 import shlex
-
+import getpass
+import socket
 
 class Ext4GUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("ext4 Shell")
+        hostname = socket.gethostname()
+        self.root.title(f"Эмулятор - [{getpass.getuser()}@{hostname}"
+                        f"]")
         self.root.geometry("600x400")
 
         self.output_area = scrolledtext.ScrolledText(root, wrap=tk.WORD, state='disabled')
